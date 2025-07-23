@@ -3,7 +3,7 @@ import httpx
 
 login_payload = {
     "email": "user@example.com",
-    "password": "string"
+    "password": "Qwerty123"
 }
 
 
