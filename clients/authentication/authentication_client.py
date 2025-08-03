@@ -60,10 +60,14 @@ class AuthenticationClient(APIClient):
         """
         return self.post("/api/v1/authentication/refresh", json=request)
 
-    # Добавили метод login
     def login(self, request: LoginRequestDict) -> LoginResponseDict:
-        response = self.login_api(request)  # Отправляем запрос на аутентификацию
-        return response.json()  # Извлекаем JSON из ответа
+        """
+        Метод выполняет аутентификацию пользователя и возвращает ответ в виде словаря.
+        :param request: Словарь с email и password.
+        :return: Словарь с информацией о токене.
+        """
+        response = self.login_api(request)  
+        return response.json()  
 
 
 def get_authentication_client() -> AuthenticationClient:

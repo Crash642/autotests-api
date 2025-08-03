@@ -113,6 +113,13 @@ class CoursesClient(APIClient):
         return self.delete(f"/api/v1/courses/{course_id}")
 
     def create_course(self, request: CreateCourseRequestDict) -> CreateCourseResponseDict:
+        """
+        Метод создания курса и возврата ответа в виде словаря.
+        :param request: Словарь с title, maxScore, minScore, description, estimatedTime,
+        previewFileId, createdByUserId.
+        :return: Словарь с информацией о созданном курсе.
+        """
+        
         response = self.create_course_api(request)
         return response.json()
 

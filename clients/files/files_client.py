@@ -69,6 +69,12 @@ class FilesClient(APIClient):
         return self.delete(f"/api/v1/files/{file_id}")
 
     def create_file(self, request: CreateFileRequestDict) -> CreateFileResponseDict:
+        """
+        Метод создания файла и возврата ответа в виде словаря.
+        :param request: Словарь с filename, directory, upload_file.
+        :return: Словарь с информацией о созданном файле.
+        """
+        
         response = self.create_file_api(request)
         return response.json()
 
