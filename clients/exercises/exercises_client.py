@@ -60,13 +60,13 @@ class GetExercisesResponseDict(TypedDict):
     """
     exercises: list[Exercise]
 
-class PostExerciseResponseDict(TypedDict):
+class CreateExerciseResponseDict(TypedDict):
     """
     Описание структуры ответа на создание задания.
     """
     exercise: Exercise
 
-class PatchExerciseResponseDict(TypedDict):
+class UpdateExerciseResponseDict(TypedDict):
     """
     Описание структуры ответа на обновление задания.
     """
@@ -144,8 +144,8 @@ class ExercisesClient(APIClient):
         """
         response = self.get_exercises_api(query)
         return response.json()
-    
-    def create_exercise(self, request: CreateExerciseRequestDict) -> PostExerciseResponseDict:
+
+    def create_exercise(self, request: CreateExerciseRequestDict) -> CreateExerciseResponseDict:
         """
         Метод создания задания и возврата ответа в виде словаря.
         :param request: Словарь с title, courseId, maxScore, 
@@ -155,7 +155,7 @@ class ExercisesClient(APIClient):
         response = self.create_exercise_api(request)
         return response.json()
 
-    def update_exercise(self, exercise_id: str, request: UpdateExerciseRequestDict) -> PatchExerciseResponseDict:
+    def update_exercise(self, exercise_id: str, request: UpdateExerciseRequestDict) -> UpdateExerciseResponseDict:
         """
         Метод обновления задания и возврата ответа в виде словаря.
         :param exercise_id: Идентификатор задания.
