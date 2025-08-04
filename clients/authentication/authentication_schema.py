@@ -31,4 +31,4 @@ class RefreshRequestSchema(BaseModel):
     """
     Описание структуры запроса для обновления токена.
     """
-    refresh_token: str = Field(alias="refreshToken")  # Использовали alias
+    refresh_token: str = Field(alias="refreshToken")  
