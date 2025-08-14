@@ -1,3 +1,5 @@
+
+import pytest
 from clients.private_http_builder import AuthenticationUserSchema
 from clients.authentication.authentication_client import get_authentication_client
 from clients.users.public_users_client import get_public_users_client
@@ -8,7 +10,8 @@ from tools.assertions.base import assert_status_code
 from http import HTTPStatus
 from tools.assertions.authentication import assert_login_response
 
-
+@pytest.mark.authentication
+@pytest.mark.regression
 
 def test_login():
     public_users_client = get_public_users_client()
