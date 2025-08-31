@@ -39,4 +39,4 @@ def assert_get_user_response(get_user_response : GetUserResponseSchema, create_u
     :param create_user_response: Ответ API с данными пользователя при создании.
     :raises AssertionError: Если хотя бы одно поле не совпадает.
     """
-    assert_user(get_user_response, create_user_response)
+    assert_user(get_user_response.user, create_user_response.user)
