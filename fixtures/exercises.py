@@ -1,11 +1,11 @@
 import pytest
-
+from pydantic import BaseModel
 from clients.exercises.exercises_client import ExercisesClient, get_exercise_client
 from clients.exercises.exercises_schema import CreateExerciseRequestSchema, CreateExerciseResponseSchema
 from fixtures.users import UserFixture
 from fixtures.courses import CourseFixture
 
-class ExerciseFixture:
+class ExerciseFixture(BaseModel):
     request: CreateExerciseRequestSchema
     response: CreateExerciseResponseSchema
 
