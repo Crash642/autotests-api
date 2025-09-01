@@ -4,7 +4,7 @@ from tools.fakers import fake
 
 
 
-class Exercise(BaseModel):
+class ExercisesSchema(BaseModel):
     """
     Описание структуры задания.
     """
@@ -60,23 +60,23 @@ class GetExerciseResponseSchema(BaseModel):
     """
     Описание структуры ответа получения задания.
     """
-    exercise: Exercise
+    exercise: ExercisesSchema
 
 class GetExercisesResponseSchema(BaseModel):
     """
     Описание структуры ответа получения списка заданий.
     """
-    exercises: list[Exercise]
+    exercises: list[ExercisesSchema]
 
 class CreateExerciseResponseSchema(BaseModel):
     """
     Описание структуры ответа на создание задания.
     """
-    exercise: Exercise
+    exercise: ExercisesSchema
 
 class UpdateExerciseResponseSchema(BaseModel):
     """
     Описание структуры ответа на обновление задания.
     """
-    exercise: Exercise
+    exercise: ExercisesSchema
 
