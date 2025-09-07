@@ -12,7 +12,7 @@ from clients.exercises.exercises_schema import (
 from tools.assertions.exercises import (
 assert_create_exercise_response, 
 assert_get_exercise_response, 
-
+assert_update_exercise_response
 )
 from tools.assertions.schema import validate_json_schema
 from fixtures.exercises import ExerciseFixture
@@ -67,7 +67,7 @@ class TestExercises:
             response.text
         )
         assert_status_code(response.status_code, HTTPStatus.OK)
-        assert_create_exercise_response(request, response_data)
+        assert_update_exercise_response(request, response_data)
         validate_json_schema(
             response.json(), response_data.model_json_schema()
         )
