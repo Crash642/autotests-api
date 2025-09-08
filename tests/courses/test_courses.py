@@ -21,11 +21,27 @@ from tools.assertions.courses import (
     assert_update_course_response,
 )
 from tools.assertions.schema import validate_json_schema
+import allure
+from tools.allure.tags import AllureTag
+from tools.allure.epics import AllureEpic
+from tools.allure.features import AllureFeature
+from tools.allure.stories import AllureStory
+from allure_commons.types import Severity
+
+
 
 
 @pytest.mark.courses
 @pytest.mark.regression
+@allure.tag(AllureTag.COURSES, AllureTag.REGRESSION)
+@allure.epic(AllureEpic.LMS)  
+@allure.feature(AllureFeature.COURSES)
 class TestCourses:
+
+    @allure.title("Update course")
+    @allure.tag(AllureTag.UPDATE_ENTITY)
+    @allure.story(AllureStory.UPDATE_ENTITY)
+    @allure.severity(Severity.CRITICAL)
     def test_update_course(
         self,
         courses_client: CoursesClient,
@@ -45,7 +61,11 @@ class TestCourses:
         validate_json_schema(
             response.json(), response_data.model_json_schema()
         )
-
+    
+    @allure.tag(AllureTag.GET_ENTITIES)
+    @allure.story(AllureStory.GET_ENTITIES)
+    @allure.title("Get courses")
+    @allure.severity(Severity.BLOCKER)
     def test_get_courses(
         self,
         courses_client: CoursesClient,
@@ -69,7 +89,10 @@ class TestCourses:
             response.json(), response_data.model_json_schema()
         )
 
-
+    @allure.tag(AllureTag.CREATE_ENTITY) 
+    @allure.story(AllureStory.CREATE_ENTITY)
+    @allure.title("Create course")
+    @allure.severity(Severity.BLOCKER)
     def test_create_course(
         self,
         courses_client: CoursesClient,
